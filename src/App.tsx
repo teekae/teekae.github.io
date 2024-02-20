@@ -1,28 +1,33 @@
+import { useState } from "react";
+import Colours from "./Colours";
 import Nav from "./Nav";
 
 function App() {
-  return (
-    <div className="min-h-screen bg-primary grid grid-cols-1 place-items-center justify-items-center mx-auto py-8">
-      <Nav />
-      <div className="rounded-lg bg-primary p-8">
-        <div className="text-2xl font-bold font-mono">
-          <h1 className="text-secondary content-center">Secondary colour</h1>
-          <h2 className="text-zinc-100">Main text colour</h2>
+    const [showColours, setShowColours] = useState(false);
+    return (
+        <div className="relative">
+            <Nav />
+            <div className="bg-surface-1 mx-auto grid min-h-screen grid-cols-1 place-items-start content-start justify-items-center gap-4 py-24">
+                <div className="bg-surface-2 rounded-lg p-4">
+                    <div className="p-4 font-mono text-2xl font-bold">
+                        <h1 className="text-selective-yellow">
+                            Main text colour
+                        </h1>
+                        <h1 className="text-curious-blue content-center">
+                            Secondary colour
+                        </h1>
+                    </div>
+                </div>
+                <button
+                    onClick={() => setShowColours(!showColours)}
+                    className="bg-selective-yellow hover:bg-selective-yellow-400 text-baltic-sea rounded p-4 font-bold"
+                >
+                    Toggle Colours
+                </button>
+                {showColours ? <Colours /> : null}
+            </div>
         </div>
-      </div>
-      <div className="flex flex-row gap-4 items-center">
-        <Card text="With primary text" className="text-primary" />
-        <Card text="With neutral text" className="text-neutral-800" />
-        <Card text="With black text" className="text-black" />
-      </div>
-    </div>
-  );
+    );
 }
-const Card = ({ text, className }: { text: string; className: string }) => {
-  return (
-    <div className="rounded bg-accent p-8">
-      <h2 className={className}>{text}</h2>
-    </div>
-  );
-};
+
 export default App;
