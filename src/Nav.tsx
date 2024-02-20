@@ -1,9 +1,15 @@
+import { Link } from "react-router-dom";
+
 const Nav = () => {
     return (
         <div className="bg-surface-2 fixed top-0 flex h-20 w-full flex-row items-stretch justify-evenly px-4 drop-shadow-lg">
             <div className=" flex flex-row items-start">
-                <Button>Home</Button>
-                <Button>About</Button>
+                <Button>
+                    <Link to="/">Home</Link>
+                </Button>
+                <Button>
+                    <Link to="about">About</Link>
+                </Button>
             </div>
             <Links />
         </div>
@@ -15,9 +21,11 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 const Button = (props: ButtonProps) => {
     return (
         <button
-            className="text-selective-yellow h-full  px-4 text-lg  hover:bg-black/5"
+            className="text-sea-buckthorn h-full  px-4 text-lg  hover:bg-black/5"
             {...props}
-        />
+        >
+            {props.children}
+        </button>
     );
 };
 
