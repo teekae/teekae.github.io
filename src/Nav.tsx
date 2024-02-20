@@ -1,35 +1,34 @@
-import { Link } from "react-router-dom";
+import { NavLink, NavLinkProps } from "react-router-dom";
 
 const Nav = () => {
     return (
         <div className="bg-surface-2 fixed top-0 flex h-20 w-full flex-row items-stretch justify-evenly px-4 drop-shadow-lg">
-            <div className=" flex flex-row items-start">
-                <Button>
-                    <Link to="/">Home</Link>
-                </Button>
-                <Button>
-                    <Link to="about">About</Link>
-                </Button>
+            <div className="flex flex-row">
+                <Link to="/">Home</Link>
+                <Link to="about">About</Link>
             </div>
-            <Links />
+            <ExternalLinks />
         </div>
     );
 };
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+type LinkProps = NavLinkProps;
 
-const Button = (props: ButtonProps) => {
+const Link = (props: LinkProps) => {
     return (
-        <button
-            className="text-sea-buckthorn h-full  px-4 text-lg  hover:bg-black/5"
+        <NavLink
             {...props}
+            className={({ isActive }) =>
+                (isActive ? "border-b-sunset-orange" : "border-b-transparent") +
+                " text-sea-buckthorn flex  h-full content-center items-center border-b-2 px-4 text-lg hover:bg-black/5"
+            }
         >
             {props.children}
-        </button>
+        </NavLink>
     );
 };
 
-const Links = () => {
+const ExternalLinks = () => {
     return (
         <div className="flex flex-row items-center justify-end gap-4">
             <a href="https://www.linkedin.com/in/tom-kirk-836b2736/">
