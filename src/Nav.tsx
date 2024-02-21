@@ -2,7 +2,7 @@ import { NavLink, NavLinkProps } from "react-router-dom";
 
 const Nav = () => {
     return (
-        <div className="bg-surface-2 fixed top-0 flex h-20 w-full flex-row items-stretch justify-evenly px-4 drop-shadow-lg">
+        <div className="fixed top-0 flex h-20 w-full flex-row items-stretch justify-evenly bg-surface-2 px-4 drop-shadow-lg">
             <div className="flex flex-row">
                 <Link to="/">Home</Link>
                 <Link to="about">About</Link>
@@ -20,7 +20,7 @@ const Link = (props: LinkProps) => {
             {...props}
             className={({ isActive }) =>
                 (isActive ? "border-b-sunset-orange" : "border-b-transparent") +
-                " text-sea-buckthorn flex  h-full content-center items-center border-b-2 px-4 text-lg hover:bg-black/5"
+                " flex h-full content-center items-center border-b-2 px-4 text-lg text-sea-buckthorn hover:bg-black/5"
             }
         >
             {props.children}

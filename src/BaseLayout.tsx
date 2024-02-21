@@ -5,7 +5,7 @@ const BaseLayout = () => {
     return (
         <div>
             <Nav />
-            <div className="bg-surface-1 mx-auto grid min-h-screen grid-cols-1 place-items-start content-start justify-items-center gap-4 py-24">
+            <div className="mx-auto grid min-h-screen grid-cols-1 place-items-start content-start justify-items-center gap-4 bg-surface-1 py-24">
                 <Outlet />
             </div>
         </div>
